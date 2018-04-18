@@ -28,6 +28,11 @@ spec:
       prometheus: k8s
   nodeSelector:
     node_label_key: node_label_value
+  tolerations:
+    - key: dedicated
+      value: tools
+      operator: "Equal"
+      effect: "NoSchedule"
   resources:
     requests:
       memory: PROMETHEUS_MEMORY_REQUEST

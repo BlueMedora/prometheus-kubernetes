@@ -10,3 +10,8 @@ spec:
   externalUrl: ALERTMANAGER_EXTERNAL_URL
   nodeSelector:
     node_label_key: node_label_value
+  tolerations:
+    - key: dedicated
+      value: tools
+      operator: "Equal"
+      effect: "NoSchedule"
