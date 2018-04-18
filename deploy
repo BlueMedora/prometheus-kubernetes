@@ -6,14 +6,15 @@
 GRAFANA_DEFAULT_VERSION=4.6.3
 PROMETHEUS_DEFAULT_VERSION=v2.2.0-rc.1
 PROMETHEUS_OPERATOR_DEFAULT_VERSION=v0.17.0
-PROMETHEUS_STORAGE_DEFAULT_RETENTION=168h
-PROMETHEUS_STORAGE_DEFAULT_VOLUME_SIZE=40Gi
+PROMETHEUS_STORAGE_DEFAULT_RETENTION=72h
+PROMETHEUS_STORAGE_DEFAULT_VOLUME_SIZE=20Gi
 PROMETHEUS_DEFAULT_MEMORY_REQUEST=1Gi
 ALERTMANAGER_DEFAULT_VERSION=v0.14.0
 NODE_EXPORTER_DEFAULT_VERSION=v0.15.2
 KUBE_STATE_METRICS_DEFAULT_VERSION=v1.2.0
-NODE_LABEL_DEFAULT_KEY=beta.kubernetes.io/monit
-NODE_LABEL_DEFAULT_VALUE=prometheus
+NODE_LABEL_DEFAULT_KEY=kops.k8s.io/instancegroup
+NODE_LABEL_DEFAULT_VALUE=tools
+USE_DEDICATED_NODES_DEFAULT=Y
 
 #########################################################################################
 #external Urls for Prometheus and Alertmanager
@@ -194,8 +195,8 @@ ALERTMANAGER_EXTERNAL_URL=${ALERTMANAGER_EXTERNAL_URL:-$ALERTMANAGER_DEFAULT_EXT
 echo
 echo -e "${ORANGE}Do you want to use ${WHITE}NodeSelector ${ORANGE} to assign monitoring components on dedicated nodes?"
 tput sgr0
-read -p "Y/N [N]: " use_dedicated_nodes
-
+read -p "Y/N [${USE_DEDICATED_NODES_DEFAULT}]: " use_dedicated_nodes
+use_dedicated_nodes=${use_dedicated_nodes:-$USE_DEDICATED_NODES_DEFAULT}
 #if so, fill out this form...
 if [[ $use_dedicated_nodes =~ ^([yY][eE][sS]|[yY])$ ]]; then
 
