@@ -62,3 +62,8 @@ spec:
           - --deployment=kube-state-metrics
       nodeSelector:
         node_label_key: node_label_value
+      tolerations:
+        - key: dedicated
+          value: tools
+          operator: "Equal"
+          effect: "NoSchedule"

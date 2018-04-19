@@ -82,6 +82,11 @@ spec:
           mountPath: /var/grafana-dashboards
       nodeSelector:
         node_label_key: node_label_value
+      tolerations:
+        - key: dedicated
+          value: tools
+          operator: "Equal"
+          effect: "NoSchedule"
       volumes:
       - name: grafana-storage
         emptyDir: {}
