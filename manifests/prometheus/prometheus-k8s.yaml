@@ -7,7 +7,7 @@ metadata:
 provisioner: STORAGE_CLASS_PROVISIONER
 parameters:
   type: STORAGE_CLASS_TYPE
-  encrypted: true
+  encrypted: "true"
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
