@@ -12,8 +12,8 @@ PROMETHEUS_DEFAULT_MEMORY_REQUEST=1Gi
 ALERTMANAGER_DEFAULT_VERSION=v0.15.1
 NODE_EXPORTER_DEFAULT_VERSION=v0.16.0
 KUBE_STATE_METRICS_DEFAULT_VERSION=v1.3.1
-NODE_LABEL_DEFAULT_KEY=beta.kubernetes.io/monit
-NODE_LABEL_DEFAULT_VALUE=prometheus
+NODE_LABEL_DEFAULT_KEY=kops.k8s.io/instancegroup
+NODE_LABEL_DEFAULT_VALUE=tools
 DEFAULT_NAMESPACE=monitoring
 
 #########################################################################################
